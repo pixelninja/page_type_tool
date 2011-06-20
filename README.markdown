@@ -1,4 +1,4 @@
-# Sitemap XML
+# Page Type Tool
 
 - Version: 1.0
 - Author: Phill Gray
@@ -7,8 +7,8 @@
 
 ## Installation
 
-- Upload the 'page_type' folder to your Symphony 'extensions' folder.
-- Enable it by selecting "Page Type", choose Enable from the with-selected menu, then click Apply.
+- Upload the 'page_type_tool' folder to your Symphony 'extensions' folder.
+- Enable it by selecting "Page Type Tool", choose Enable from the with-selected menu, then click Apply.
 
 ## Usage
 

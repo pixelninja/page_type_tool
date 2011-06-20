@@ -1,10 +1,10 @@
 <?php
 
-	Class extension_page_type extends Extension{
+	Class extension_page_type_tool extends Extension{
 	
 		public function about(){
 			return array(
-				'name' => 'Page Type',
+				'name' => 'Page Type Tool',
 				'version' => '1.0',
 				'release-date' => '2011-06-19',
 				'author' => array(
@@ -13,17 +13,7 @@
 					)
 		 		);
 		}
-		
-		/*public function fetchNavigation() {
-			return array(
-				array(
-					'location' => 'Blueprints',
-					'name'	=> 'Sitemap XML',
-					'link'	=> '/xml/',
-				),
-			);
-		}*/
-		
+				
 		public function getSubscribedDelegates() {
 			return array(
 				array(
@@ -38,41 +28,7 @@
 				)
 			);
 		}
-		
-		/*public function install() {
-			// Add defaults to config.php
-			if (!Symphony::Configuration()->get('index_type', 'sitemap_xml')) {
-				Symphony::Configuration()->set('index_type', 'index', 'sitemap_xml');
-				Symphony::Configuration()->set('global', 'sitemap', 'sitemap_xml');
-				Symphony::Configuration()->set('lastmod', date('c', time()), 'sitemap_xml');
-				Symphony::Configuration()->set('changefreq', 'monthly', 'sitemap_xml');
-			}
-			
-			// Add table to database 
-			Symphony::Database()->query('
-				CREATE TABLE IF NOT EXISTS tbl_sitemap_xml (
-					`id` INT(4) UNSIGNED DEFAULT NULL AUTO_INCREMENT,
-					`page_id` INT(4) UNSIGNED DEFAULT NULL,
-					`datasource_handle` VARCHAR(255) DEFAULT NULL,
-					`relative_url` TINYTEXT DEFAULT NULL,
-					PRIMARY KEY (`id`),
-					UNIQUE KEY datasource_handle_page_id (`datasource_handle`, `page_id`)
-				) ENGINE=MyISAM
-			');
-			
-			// Autogenerate a blank sitemap.xml
-			$fp = fopen(getcwd() . '/sitemap.xml', 'w+');
-			fclose($fp);
-			
-			return Administration::instance()->saveConfig();
-		}*/
-		
-		/*public function uninstall() {
-			Symphony::Configuration()->remove('sitemap_xml');
-			Symphony::Database()->query('DROP TABLE IF EXISTS tbl_sitemap_xml');
-			return Administration::instance()->saveConfig();
-		}*/
-		
+				
 		public function initaliseAdminPageHead($context) {
 			$callback = Symphony::Engine()->getPageCallback();
 			
@@ -85,14 +41,11 @@
 		public function __appendPreferences($context) {
 			$pages = Symphony::Database()->fetch("SELECT p.* FROM `tbl_pages` AS p ORDER BY p.sortorder ASC");
 		
-			
-			/*@group Fieldset containing Page Type settings*/
 			$group = new XMLElement('fieldset');
 			$group->setAttribute('class', 'settings add_pagetype');
 			$group->appendChild(new XMLElement('legend', __('Add page type'))); 
 			
 			$span = new XMLElement('span', NULL, array('class' => 'frame'));
-			
 			
 			$page_list = array('');
 			foreach($pages as $page) {
