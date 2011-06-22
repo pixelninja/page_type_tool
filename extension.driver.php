@@ -34,7 +34,7 @@
 			
 			// Append assets
 			if($callback['driver'] == 'systempreferences') {
-				Symphony::Engine()->Page->addScriptToHead(URL . '/extensions/sitemap_xml/assets/sitemap_xml.ajax.js', 10001);
+				Symphony::Engine()->Page->addScriptToHead(URL . '/extensions/page_type_tool/assets/page_type_tool.ajax.js', 10001);
 			}
 		}
 		
