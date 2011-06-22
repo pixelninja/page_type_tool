@@ -28,7 +28,7 @@ jQuery(function($){
 		var data = {addtype: {page_type: page_type, page: page}, 'action[add_pagetype]': 'run'};
 				
 		self.attr('disabled', 'disabled');
-		status.prepend(gif.attr('src', Symphony.WEBSITE + '/extensions/sitemap_xml/assets/ajax-loader.gif'));
+		status.prepend(gif.attr('src', Symphony.WEBSITE + '/extensions/page_type_tool/assets/ajax-loader.gif'));
 		
 		$.ajax({
 			url: window.location.href,
