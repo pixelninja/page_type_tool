@@ -30,11 +30,11 @@
 		}
 				
 		public function initaliseAdminPageHead($context) {
-			$callback = Symphony::Engine()->getPageCallback();
+			$callback = Administration::instance()->getPageCallback();
 			
 			// Append assets
 			if($callback['driver'] == 'systempreferences') {
-				Symphony::Engine()->Page->addScriptToHead(URL . '/extensions/page_type_tool/assets/page_type_tool.ajax.js', 10001);
+				Administration::instance()->Page->addScriptToHead(URL . '/extensions/page_type_tool/assets/page_type_tool.ajax.js', 10001);
 			}
 		}
 		
