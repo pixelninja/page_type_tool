@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="page_type_tool" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Page Type Tool</name>
+	<description>Add a page type to multiple pages at once.</description>
+	<repo type="github">https://github.com/pixelninja/page_type_tool</repo>
+	<url type="discuss">http://symphony-cms.com/discuss/thread/72109/</url>
+	<types>
+		<type>Workflow</type>
+	</types>
+	<authors>
+		<author>
+			<name github="pixelninja" symphony="touchstone">Phillip Gray</name>
+			<website>http://www.touchstone-dev.co.nz</website>
+		</author>
+	</authors>
+	<releases>
+		<release version="1.1" date="2011-06-22" min="2.2.1" />
+	</releases>
+</extension>
