@@ -4,15 +4,16 @@ Symphony.Language.add({
 });
 
 jQuery(function($){
-	var _ = Symphony.Language.get;
-	var fieldset = $('.add_pagetype'),
+	var _ = Symphony.Language.get,
+		fieldset = $('.add_pagetype'),
 		status = $('<span />').attr('class', 'status'),
 		gif = $('<img />'),
 		form = $('form');
 		
 	if (!fieldset.length) return;
 	
-	fieldset.append(status)
+	fieldset.append(status);
+	
 	fieldset.find('button').click(function(e){
 		var status = fieldset.find('span.status');
 		status.text('');
@@ -22,12 +23,13 @@ jQuery(function($){
 			page = fieldset.find('select').val();
 		
 		if (page_type == false || page == null) {
-			alert('Please fill out both fields');
+			status.removeClass('valid').addClass('invalid').text('Please fill out both fields');
 			return false;
 		}
 		var data = {addtype: {page_type: page_type, page: page}, 'action[add_pagetype]': 'run'};
 				
 		self.attr('disabled', 'disabled');
+		status.removeClass('valid').removeClass('invalid').text('');
 		status.prepend(gif.attr('src', Symphony.WEBSITE + '/extensions/page_type_tool/assets/ajax-loader.gif'));
 		
 		$.ajax({
@@ -36,12 +38,12 @@ jQuery(function($){
 			success: function(html){
 				self.attr('disabled', null);
 				status.find('img').remove;
-				status.text(Symphony.Language.get('Complete!'));
+				status.addClass('valid').text(_('Complete!'));
 			},
 			error: function(){
 				self.attr('disabled', null);
 				status.find('img').remove;
-				status.text(Symphony.Language.get('Request failed. Try again.'));
+				status.addClass('invalid').text(_('Request failed. Try again.'));
 			}
 		});
 		

@@ -2,24 +2,12 @@
 
 	Class extension_page_type_tool extends Extension{
 	
-		public function about(){
-			return array(
-				'name' => 'Page Type Tool',
-				'version' => '1.0',
-				'release-date' => '2011-06-19',
-				'author' => array(
-				 		'name' => 'Phill Gray',
-						'email' => 'phill@randb.com.au'
-					)
-		 		);
-		}
-				
 		public function getSubscribedDelegates() {
 			return array(
 				array(
 					'page' => '/system/preferences/',
 					'delegate' => 'AddCustomPreferenceFieldsets',
-					'callback' => '__appendPreferences'
+					'callback' => 'appendPreferences'
 				),
 				array(
 					'page' => '/backend/',
@@ -30,15 +18,16 @@
 		}
 				
 		public function initaliseAdminPageHead($context) {
-			$callback = Symphony::Engine()->getPageCallback();
+			$callback = Administration::instance()->getPageCallback();
 			
 			// Append assets
 			if($callback['driver'] == 'systempreferences') {
-				Symphony::Engine()->Page->addScriptToHead(URL . '/extensions/page_type_tool/assets/page_type_tool.ajax.js', 10001);
+				Administration::instance()->Page->addScriptToHead(URL . '/extensions/page_type_tool/assets/page_type_tool.ajax.js', 10001);
+				Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/page_type_tool/assets/page_type_tool.publish.css', 'screen');
 			}
 		}
 		
-		public function __appendPreferences($context) {
+		public function appendPreferences($context) {
 			$pages = Symphony::Database()->fetch("SELECT p.* FROM `tbl_pages` AS p ORDER BY p.sortorder ASC");
 		
 			$group = new XMLElement('fieldset');

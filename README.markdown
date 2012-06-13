@@ -1,9 +1,9 @@
 # Page Type Tool
 
-- Version: 1.0
+- Version: 1.2
 - Author: Phill Gray
-- Build Date: 2011-06-19
-- Requirements: Symphony 2.2.1
+- Build Date: 2012-06-13
+- Requirements: Symphony 2.3
 
 ## Installation
 

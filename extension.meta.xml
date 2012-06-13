@@ -10,10 +10,11 @@
 	<authors>
 		<author>
 			<name github="pixelninja" symphony="touchstone">Phillip Gray</name>
-			<website>http://www.touchstone-dev.co.nz</website>
+			<email>pixel.ninjad@gmail.com</email>
 		</author>
 	</authors>
 	<releases>
+		<release version="1.2" date="2012-06-13" min="2.3" />
 		<release version="1.1" date="2011-06-22" min="2.2.1" />
 	</releases>
 </extension>
